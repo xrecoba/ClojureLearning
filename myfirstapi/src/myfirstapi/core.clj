@@ -18,6 +18,7 @@
          :headers {"Content-Type" "text/html"}}))))
 
 
+(defn pepe []
   (print "Hello world"))
 
 (defn what-is-my-ip [request]
