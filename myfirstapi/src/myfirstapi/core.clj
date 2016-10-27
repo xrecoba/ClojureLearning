@@ -2,16 +2,29 @@
   (:require [ring.adapter.jetty :as jetty]))
 
 
-(defn mycustomapp [request]
-  (:body "Hello World"
-         :status 200
-         :headers ("Content-Type" "tesxt/html")))
+(defn mycustomapp [request] "Hello World")
 
 (defn handler [request]
   {:status 200
    :headers {"Content-Type" "text/html"}
    :body "Goodbye World"})
 
+(defn string-response-middleware [handler]
+  (fn [request]
+    (let [response (handler request)]
+      (if (instance? String response)
+        {:body response
+         :status 200
+         :headers {"Content-Type" "text/html"}}))))
+
+
+  (print "Hello world"))
+
+(defn what-is-my-ip [request]
+  {:status 200
+   :headers {"Content-Type" "text/plain"}
+   :body (:remote-addr request)})
+
 (defn -main []
-  ;)
-   (jetty/run-jetty handler (:port 3000)))
+  ;(print "Hello world"))
+   (jetty/run-jetty (string-response-middleware mycustomapp) (:port 3000)))
