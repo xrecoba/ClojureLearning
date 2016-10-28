@@ -3,9 +3,7 @@
             [ring.middleware.params :refer [wrap-params]]))
 
 (defn mycustomapp [request]
-  ; print querystring to see contents.
-  ; or access request object to see if middleware params has extended it
-  (str "Hello, " (get (:params request) "name")))
+  (str "Hello, pajaro " (get (:params request) "name")))
 
 (defn string-response-middleware [handler]
   (fn [request]
