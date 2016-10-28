@@ -1,13 +1,11 @@
 (ns myfirstapi.core
-  (:require [ring.adapter.jetty :as jetty]))
+  (:require [ring.adapter.jetty :as jetty]
+            [ring.middleware.params :refer [wrap-params]]))
 
-
-(defn mycustomapp [request] "Hello World")
-
-(defn handler [request]
-  {:status 200
-   :headers {"Content-Type" "text/html"}
-   :body "Goodbye World"})
+(defn mycustomapp [request]
+  ; print querystring to see contents.
+  ; or access request object to see if middleware params has extended it
+  (str "Hello, " (get (:params request) "name")))
 
 (defn string-response-middleware [handler]
   (fn [request]
@@ -17,15 +15,11 @@
          :status 200
          :headers {"Content-Type" "text/html"}}))))
 
-
-(defn pepe []
-  (print "Hello world"))
-
-(defn what-is-my-ip [request]
-  {:status 200
-   :headers {"Content-Type" "text/plain"}
-   :body (:remote-addr request)})
+(def handler
+  (-> mycustomapp
+      string-response-middleware
+      wrap-params))
 
 (defn -main []
   ;(print "Hello world"))
-   (jetty/run-jetty (string-response-middleware mycustomapp) (:port 3000)))
+   (jetty/run-jetty handler (:port 3000)))
