@@ -1,7 +1,7 @@
-(ns hello-world-comp.handler-test
+(ns hello-world-compojure.handler-test
   (:require [clojure.test :refer :all]
             [ring.mock.request :as mock]
-            [hello-world-comp.handler :refer :all]))
+            [hello-world-compojure.handler :refer :all]))
 
 (deftest test-app
   (testing "main route"

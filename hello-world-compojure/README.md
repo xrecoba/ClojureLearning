@@ -1,4 +1,4 @@
-# hello-world-comp
+# hello-world-compojure
 
 FIXME
 
