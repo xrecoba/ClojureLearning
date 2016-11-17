@@ -4,9 +4,8 @@
   (:import [org.bson.types ObjectId]
            [com.mongodb DB WriteConcern]))
 
-(let [conn (mg/connect)
-      db   (mg/get-db conn "trajeTraje")]
-  ;(mc/insert-and-return db "trajeTraje" {:name "John" :age 30})
+(defn create-dinner [name]
+    (let [conn (mg/connect)
+      db (mg/get-db conn "trajeTraje")]
+      (mc/insert db "trajeTraje" { :dinner_name name })))
 
-  (mc/insert db "trajeTraje" { :first_name "John" :last_name "Lennon" })
-  )

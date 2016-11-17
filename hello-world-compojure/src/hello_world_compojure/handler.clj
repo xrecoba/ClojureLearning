@@ -1,6 +1,7 @@
 (ns hello-world-compojure.handler
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
+            [hello-world-compojure.mongo :as my-mongo]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
 
 (def hola-quim "Hello Quim")
@@ -12,7 +13,7 @@
 (defroutes app-routes
   (GET "/" [] hola-quim)
   (POST "/dinner" [] add-dinner)
-  (GET "/dinner" [] "This is some dinner")
+  (GET "/dinner" [] (my-mongo/create-dinner "from web post!"))
   (route/not-found "Not Found"))
 
 
