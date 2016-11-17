@@ -1,0 +1,21 @@
+C:\Users\Xavi\Documents\GitHub\LearningClojure\myfirstapi>lein run -m myfirstapi.core
+
+lein repl
+
+Then at the REPL, run the Jetty adapter with your handler.
+
+(use 'ring.adapter.jetty)
+(use 'myfirstapi.core)
+(run-jetty (string-response-middleware mycustomapp) {:port 3005})
+
+https://kendru.github.io/restful-clojure/2014/03/01/building-out-the-web-service-restful-clojure-part-3/
+https://mmcgrana.github.io/2010/08/clojure-rest-api.html
+
+http://clojure-liberator.github.io/liberator/  -->  ?
+http://clojuremongodb.info/articles/guides.html
+
+C:\Users\Xavi\Documents\GitHub\LearningClojure\hello-world-compojure>lein ring server
+
+cd C:\Users\Xavi\Documents\GitHub\LearningClojure.git\hello-world-compojure
+lein ring server
+lein ring server-headless

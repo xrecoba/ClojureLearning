@@ -1,0 +1,53 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ClojureTrajeTraje",
+		"_postman_id": "dcd5c7e4-cd06-6021-7199-c34bde17fa54",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get dinners (which now adds a new one)",
+			"request": {
+				"url": "http://{{ApiUrl}}/dinner",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "root url",
+			"request": {
+				"url": "http://{{ApiUrl}}",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add dinner",
+			"request": {
+				"url": "http://{{ApiUrl}}/dinner",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
