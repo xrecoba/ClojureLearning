@@ -22,9 +22,4 @@
 
 (app {:uri "/" :request-method :get})
 (app {:uri "/dinner" :request-method :post})
-(print dinners)
 
-
-(def x (list 1 2 3))
-(cons 0 x)
-(print x)
